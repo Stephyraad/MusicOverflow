@@ -1,0 +1,12 @@
+<%= form_for @post do |f| %>
+<div class="form_for">
+	<div class="small form" id="form_topic">
+		<%= f.text_field :topic, placeholder: "String", class: "form-control" %>
+	</div>
+	
+
+	<%= f.submit %> <br/>
+	<%= link_to 'Cancel', posts_path %>
+	<%end %>
+
+	<form>

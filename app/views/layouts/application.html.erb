@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title><%= content_for?(:title) ? yield(:title) : "MusicOverflow" %></title>
+
+
+<%= stylesheet_link_tag    "application" %>
+<%= javascript_include_tag "vendor/modernizr" %>
+<%= csrf_meta_tags %>
+
+</head>
+
+
+<body>
+<div ng-app="post-app" class="container">
+  <div ng-controller="ResourceCtrl">
+
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="#">Notifications</a></li>
+       <li><a href="#">Home</a></li>
+       <li>
+          <a href="#" data-reveal-id="myModal1">New String</a>
+            <div id="myModal1" class="reveal-modal" data-reveal>
+              <h3>String:</h3>
+                 <form ng-submit="saveResource();" class="form-group">
+                  <label for="topic">String:</label>
+                     <input ng-model="newResource.topic" type="text" name="topic" class="form-control" placeholder="Topic">
+                              
+                       <br>
+                        <input type="submit" value="Add New Resource!" class="btn btn-primary">
+                        </form>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+
+       <!-- ******* -->
+      <!-- <li class="has-dropdown">
+        <a href="#">New String</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+        </ul>
+      </li> -->
+      <!-- ***** -->
+    </ul>   
+  </section>
+</nav>
+
+
+
+  
+            
+
+
+
+<%= javascript_include_tag "application" %>
+<%= yield %>
+
+
+</body>
+</html>

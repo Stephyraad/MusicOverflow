@@ -1,0 +1,23 @@
+<h1>Home Page (without the user's own posts)</h1>
+
+
+<% @posts.each do |b| %>
+  <ul>
+    <li>
+     
+        
+        <div><strong>posts</strong><br><%= b.topic %></div>
+        
+        
+       <ul><%= link_to "View", post_path(b) %></ul>
+      
+        
+         
+    </li>
+  </ul>
+<% end %>
+  <script type="text/javascript">
+//  document.getElementById("currentevent").onclick= function(){
+  
+// }
+</script>
