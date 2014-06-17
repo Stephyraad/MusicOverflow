@@ -3,16 +3,9 @@
 
 <% @posts.each do |b| %>
   <ul>
-    <li>
-     
-        
-        <div><strong>posts</strong><br><%= b.topic %></div>
-        
-        
-       <ul><%= link_to "View", post_path(b) %></ul>
+    <li><%= b.topic %>    
       
-        
-         
+       <ul><%= link_to "View", post_path(b) %></ul>
     </li>
   </ul>
 <% end %>

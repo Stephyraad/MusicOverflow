@@ -28,9 +28,27 @@
     <!-- Right Nav Section -->
     <ul class="right">
       <li><a href="#">Notifications</a></li>
-       <li><a href="#">Home</a></li>
-       <li>
-          <a href="#" data-reveal-id="myModal1">New String</a>
+      <li><%= link_to "Home", posts_path %></li>
+    
+      <li><%= link_to "New String", new_post_path %></li> 
+      <li><%= link_to "Sign in"%></li>
+         <!-- <li>
+            <a href="#" data-reveal-id="myModal3">New String</a>
+              <div id="myModal3" class="reveal-modal" data-reveal>
+              <%#= form_for @post do |f| %>
+                  <div class="form_for">
+                  <div class="small form" id="form_topic">
+                  <%#= f.text_field :topic, placeholder: "String", class: "form-control" %>
+                  </div>
+                  <%#= f.submit %> <br/>
+                  <%#= link_to 'Cancel', posts_path %>
+                <#%end %>
+                <a class="close-reveal-modal">&#215;</a>
+              </div>
+                </li> 
+            <#% end %> -->
+
+          <!-- <a href="#" data-reveal-id="myModal1">New String</a>
             <div id="myModal1" class="reveal-modal" data-reveal>
               <h3>String:</h3>
                  <form ng-submit="saveResource();" class="form-group">
@@ -40,8 +58,8 @@
                        <br>
                         <input type="submit" value="Add New Resource!" class="btn btn-primary">
                         </form>
-            </div>
-            <a class="close-reveal-modal">&#215;</a>
+            </div> -->
+            <a class="close-reveal-modal"></a>
 
        <!-- ******* -->
       <!-- <li class="has-dropdown">
@@ -56,15 +74,25 @@
 </nav>
 
 
-
-  
-            
-
-
-
 <%= javascript_include_tag "application" %>
 <%= yield %>
 
+
+<!--<script src="http://connect.soundcloud.com/sdk.js"></script>
+<script>
+// initialize client with app credentials
+SC.initialize({
+  client_id: 'client_id',
+  redirect_uri: 'REDIRECT_URL'
+});
+
+// initiate auth popup
+SC.connect(function() {
+  SC.get('/me', function(me) { 
+    alert('Hello, ' + me.username); 
+  });
+});
+</script> -->
 
 </body>
 </html>

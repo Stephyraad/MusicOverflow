@@ -5,7 +5,11 @@ class PostsController < ApplicationController
 
   def show
     @post= Post.find(params[:id])
-    respond_with @post
+    #@comment=@post.comments.new
+    @comment = Comment.new
+    #@new_comment = @post.comments.build
+    @comments = @post.comments.reverse
+    #respond_with @post
 
   end
 
@@ -15,7 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post =Post.new(params.require(:post).permit(:topic))
-    @post.user = current_user
+    # @post.user = current_user
     if @post.save
       redirect_to posts_path
     else
@@ -39,6 +43,10 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to :root
+  end
+
+  def comment_params
+    params.require(:comment).permit(:text_comment)
   end
   
 end

@@ -1,4 +1,7 @@
 Musicoverflow::Application.routes.draw do
+  get "comments/index"
+  get "comments/create"
+  get "comments/update"
   resources :posts do
     resources :comments
   end
