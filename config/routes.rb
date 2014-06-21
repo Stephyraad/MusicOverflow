@@ -1,12 +1,17 @@
 Musicoverflow::Application.routes.draw do
-  get "comments/index"
-  get "comments/create"
-  get "comments/update"
+
+  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+  resource :sessions, only: [:new, :create, :destroy]
+  resources :users
+
   resources :posts do
     resources :comments
   end
 
-  root 'posts#index'
+  root to: 'posts#welcome'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

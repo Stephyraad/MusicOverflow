@@ -3,7 +3,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-gem 'soundcloud', '0.2.0'
+gem 'omniauth'
+gem 'omniauth-soundcloud', '~> 1.0.0'
+
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -27,8 +29,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 gem 'angularjs-rails'
+gem "figaro"
+ gem 'bcrypt', '~> 3.1.7'
 
-gem 'omniauth-soundcloud', '~> 1.0.0'
 
 gem 'active_model_serializers'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

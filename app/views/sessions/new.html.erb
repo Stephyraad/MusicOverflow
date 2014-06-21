@@ -1,14 +1,23 @@
-<html lang="en">
+<!-- <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title><%= content_for?(:title) ? yield(:title) : "MusicOverflow" %></title>
-<%= stylesheet_link_tag    "application" %>
-<%= javascript_include_tag "vendor/modernizr" %>
-<%= csrf_meta_tags %>
+<title><%#= content_for?(:title) ? yield(:title) : "MusicOverflow" %></title>
+<%#= stylesheet_link_tag    "application" %>
+<%#= javascript_include_tag "vendor/modernizr" %>
+<%#= csrf_meta_tags %>
+
+
 
 </head>
-<body>
+<body> -->
+	<h1>Login</h1>
+
+<%= form_for :session, :url => sessions_path do |f| %>
+	Email: <%= f.text_field :email %>
+	Password: <%= f.password_field :password %>
+	<%= f.submit "login" %>
+	<% end %>
 </body>
 </html>

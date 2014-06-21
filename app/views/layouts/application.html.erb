@@ -6,16 +6,26 @@
 <title><%= content_for?(:title) ? yield(:title) : "MusicOverflow" %></title>
 
 
-<%= stylesheet_link_tag    "application" %>
-<%= javascript_include_tag "vendor/modernizr" %>
+<%#= stylesheet_link_tag 'http://soundcloudfront.com/stylesheets/style.css', 'application', 'soundcloud' %>
+<%= stylesheet_link_tag 'application' %>
+  <!-- <%= javascript_include_tag 'jquery-1.5.min', 'connect', 'application' %> -->
 <%= csrf_meta_tags %>
+
+ <script src="http://connect.soundcloud.com/sdk.js"></script>
+
+<!-- In order to access the JavaScript object which provides the SoundCloud Widget API, add this script to your html page. -->
+<script src="/assets/sc_api_player.js"></script>
+  
 
 </head>
 
+  
 
 <body>
+  <div id="player"></div>
+<!-- 
 <div ng-app="post-app" class="container">
-  <div ng-controller="ResourceCtrl">
+  <div ng-controller="ResourceCtrl"> -->
 
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
@@ -23,15 +33,66 @@
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
+ 
 
   <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <!-- <ul class="left">
+              <%# if !current_user %>
+                <li>
+                  <a href="#" data-reveal-id="myModal3">Sign In</a>
+                    <div id="myModal3" class="reveal-modal" data-reveal>
+                      <%#= form_for :session, :url => sessions_path do |f| %>
+                        Email: <%#= f.text_field :email %>
+                        Password: <%#= f.password_field :password %>
+                        <%#= f.submit "login" %>
+                      <%# end %>
+                      <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </li>
+              <%# end %>
+              <%# if current_user %>
+                <li>
+                  <%#= link_to "Sign Out", sessions_path, :method => :delete %>
+                </li>
+              <%# end %>
+              <%# if !current_user %>
+
+                <li>
+                  <a href="#" data-reveal-id="myModal6">Sign Up</a>
+                  <div id="myModal6" class="reveal-modal" data-reveal>
+                    <%#= render :partial => 'users/new' %>
+                    <a class="close-reveal-modal">&#215;</a>
+                  </div>
+                </li>
+                <%# end %>
+            </ul> -->
+
+      <ul class="left">
+      <% if !current_user %>
+       <a class="navbar-brand" href="#">MusicOverflow</a>
+      <% else %>
+      <a class="navbar-brand" href="#"> <%= link_to current_user.username, users_path(filteruser: 's') %></a>
+      <% end %>
+
+
+          
+      <% if !current_user %>
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Sign In", new_sessions_path %></li>
+        <% else %>
+          <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
+        <% end %> 
+
+      
+      </ul>
     <!-- Right Nav Section -->
     <ul class="right">
       <li><a href="#">Notifications</a></li>
       <li><%= link_to "Home", posts_path %></li>
     
       <li><%= link_to "New String", new_post_path %></li> 
-      <li><%= link_to "Sign in"%></li>
+      
          <!-- <li>
             <a href="#" data-reveal-id="myModal3">New String</a>
               <div id="myModal3" class="reveal-modal" data-reveal>
@@ -73,26 +134,24 @@
   </section>
 </nav>
 
+<div id="player"></div>
 
+<!-- <div id="user-widget">
+  <%# if current_user %>
+    Welcome <strong><%#= current_user.name %></strong>!
+    <%#= link_to "Sign out", signout_path, id: "sign_out" %>
+  <%# else %>
+    <%#= link_to "Sign in with Soundcloud", "/auth/soundcloud", id: "sign_in" %>
+  <%# end %>
+</div>
+ -->
 <%= javascript_include_tag "application" %>
 <%= yield %>
 
 
-<!--<script src="http://connect.soundcloud.com/sdk.js"></script>
-<script>
-// initialize client with app credentials
-SC.initialize({
-  client_id: 'client_id',
-  redirect_uri: 'REDIRECT_URL'
-});
 
-// initiate auth popup
-SC.connect(function() {
-  SC.get('/me', function(me) { 
-    alert('Hello, ' + me.username); 
-  });
-});
-</script> -->
+
+
 
 </body>
 </html>

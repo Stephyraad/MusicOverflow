@@ -1,0 +1,11 @@
+<h1><%= current_user.username %></h1>
+<p></p>
+
+<% @posts.each do |b| %>
+  <ul>
+    <li><%= b.topic %>    
+      <p>by {{post.user.username}}</p>
+       <ul><%= link_to "View", user_path(b) %></ul>
+    </li>
+  </ul>
+<% end %>

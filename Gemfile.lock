@@ -29,6 +29,7 @@ GEM
       tzinfo (~> 0.3.37)
     angularjs-rails (1.2.16)
     arel (4.0.2)
+    bcrypt (3.1.7)
     builder (3.1.4)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -42,17 +43,14 @@ GEM
     execjs (2.2.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     foundation-rails (5.2.3.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
     hashie (2.1.2)
     hike (1.2.3)
-    httmultiparty (0.3)
-      httparty (>= 0.7.3)
-      multipart-post
-    httparty (0.11.0)
-      multi_json (~> 1.0)
-      multi_xml (>= 0.5.2)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -136,10 +134,6 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
-    soundcloud (0.2.0)
-      hashie
-      httmultiparty (>= 0.3)
-      httparty (>= 0.7.3)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -166,10 +160,13 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   angularjs-rails
+  bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
+  figaro
   foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
+  omniauth
   omniauth-soundcloud (~> 1.0.0)
   pg
   rails (= 4.0.4)
@@ -177,5 +174,4 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.2)
   sdoc
-  soundcloud (= 0.2.0)
   uglifier (>= 1.3.0)

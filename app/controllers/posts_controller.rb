@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
+
+  def welcome
+  end
+
   def index
-    @posts= Post.all.reverse
+    
+      @posts= Post.where.not(user_id: current_user.id).reverse
+   
+
+    
   end
 
   def show
@@ -19,7 +27,7 @@ class PostsController < ApplicationController
 
   def create
     @post =Post.new(params.require(:post).permit(:topic))
-    # @post.user = current_user
+    @post.user_id = current_user.id
     if @post.save
       redirect_to posts_path
     else
@@ -44,6 +52,7 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to :root
   end
+
 
   def comment_params
     params.require(:comment).permit(:text_comment)

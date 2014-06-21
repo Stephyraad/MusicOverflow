@@ -1,51 +1,43 @@
-
-
+require "bcrypt"
 class User < ActiveRecord::Base
-	has_many :posts
-
-
-  # Please don't use these keys.
-  # You can register your own app: http://soundcloud.com/you/apps
-  # http://soundcloud.com/you/apps/localhost-3001/edit
-  #SOUNDCLOUD_CLIENT_ID     = "BXnNn9AjpkQVs8SMnri8g"
-  #SOUNDCLOUD_CLIENT_SECRET = "FlhLpivGUdRZMszLxlQ3w1Xl70hSMvH39ILze9748"
-  # http://soundcloud.com/you/apps/connect-with-soundcloud-rails-demo
-  SOUNDCLOUD_CLIENT_ID     = "client_id"
-  SOUNDCLOUD_CLIENT_SECRET = "client_secret"
-
-  def self.soundcloud_client(options={})
-    options = {
-      :client_id     => SOUNDCLOUD_CLIENT_ID,
-      :client_secret => SOUNDCLOUD_CLIENT_SECRET,
-    }.merge(options)
-
-    Soundcloud.new(options)
-  end
+  include BCrypt
+  has_many :posts
+  has_many :comments  
   
+  # but even if i comment it out the test still passes why???
+  validates_presence_of :username, :email, :password
+  validates_uniqueness_of :username, :email
+  validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates :password, length: { in: 6..20 }
+
   
-  def soundcloud_client(options={})
-    options= {
-      :expires_at    => soundcloud_expires_at,
-      :access_token  => soundcloud_access_token,
-      :refresh_token => soundcloud_refresh_token
-    }.merge(options)
-    
-    client = self.class.soundcloud_client(options)
-    
-    # define a callback for successful token exchanges
-    # this will make sure that new access_tokens are persisted once an existing 
-    # access_token expired and a new one was retrieved from the soundcloud api
-    client.on_exchange_token do
-      self.update_attributes!({
-        :soundcloud_access_token  => client.access_token,
-        :soundcloud_refresh_token => client.refresh_token,
-        :soundcloud_expires_at    => client.expires_at,
-      })
+
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.oauth_token = auth.credentials.token
+      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      user.save!
     end
-    
-    client
   end
 
+  def password
+    @password
+  end
 
+  def password=(new_password)
+    @password = new_password
+    self.password_digest = BCrypt::Password.create(new_password)
 
+  end
+
+  def authenticate(test_password)
+    if BCrypt::Password.new(self.password_digest) == test_password
+      self
+    else
+      false
+    end
+  end
 end

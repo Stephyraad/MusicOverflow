@@ -12,6 +12,15 @@
   *= require foundation_and_overrides
  *= require_tree .
  */
-@import "./foundation-config.scss";
-@import "foundation/scss/normalize.scss";
-@import "foundation/scss/foundation.scss";
+
+@import "foundation";
+
+
+h1 {
+  font-family: Helvetica;
+  font-weight: 100;
+}
+body {
+  color:#333;
+	text-align:center;
+}
