@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'rspec/rails'
+require 'shoulda/matchers'
 
 # Specs in this file have access to a helper object that includes
 # the SessionsHelper. For example:

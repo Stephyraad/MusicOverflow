@@ -9,6 +9,8 @@ describe Comment do
  		expect(@comment.text_comment).to_not eq " "
   	end
   end
+
+  it {should belong_to(:post)}
 end
 
 

@@ -60,6 +60,9 @@ describe User do
 			expect(@user5).to be_invalid
 		end
 	end
+
+	it {should have_many(:posts)}
+	it {should have_many(:comments)}
 	
 end
 
