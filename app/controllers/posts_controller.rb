@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :set_post, :only => [:show, :edit, :update, :destroy]
+  
   def welcome
   end
 
@@ -53,6 +55,13 @@ class PostsController < ApplicationController
     redirect_to :root
   end
 
+  def set_post
+    @post= Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:topic)
+  end
 
   def comment_params
     params.require(:comment).permit(:text_comment)

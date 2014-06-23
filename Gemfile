@@ -10,10 +10,7 @@ gem 'omniauth-soundcloud', '~> 1.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
 
-gem 'foundation-rails'
 gem 'rails_12factor'
 
 # Use Uglifier as compressor for JavaScript assets
@@ -30,7 +27,12 @@ gem 'jquery-rails'
 
 gem 'angularjs-rails'
 gem "figaro"
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.2'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem "bootstrap_form"
 
 
 gem 'active_model_serializers'
