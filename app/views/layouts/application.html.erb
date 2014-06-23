@@ -8,7 +8,7 @@
 
 <%#= stylesheet_link_tag 'http://soundcloudfront.com/stylesheets/style.css', 'application', 'soundcloud' %>
 <%= stylesheet_link_tag 'application' %>
-  <!-- <%= javascript_include_tag 'jquery-1.5.min', 'connect', 'application' %> -->
+  <%= javascript_include_tag 'jquery-1.5.min', 'connect', 'application', 'vendor/modernizr' %>
 <%= csrf_meta_tags %>
 
  <script src="http://connect.soundcloud.com/sdk.js"></script>
@@ -37,37 +37,7 @@
 
   <section class="top-bar-section">
     <!-- Left Nav Section -->
-    <!-- <ul class="left">
-              <%# if !current_user %>
-                <li>
-                  <a href="#" data-reveal-id="myModal3">Sign In</a>
-                    <div id="myModal3" class="reveal-modal" data-reveal>
-                      <%#= form_for :session, :url => sessions_path do |f| %>
-                        Email: <%#= f.text_field :email %>
-                        Password: <%#= f.password_field :password %>
-                        <%#= f.submit "login" %>
-                      <%# end %>
-                      <a class="close-reveal-modal">&#215;</a>
-                    </div>
-                </li>
-              <%# end %>
-              <%# if current_user %>
-                <li>
-                  <%#= link_to "Sign Out", sessions_path, :method => :delete %>
-                </li>
-              <%# end %>
-              <%# if !current_user %>
-
-                <li>
-                  <a href="#" data-reveal-id="myModal6">Sign Up</a>
-                  <div id="myModal6" class="reveal-modal" data-reveal>
-                    <%#= render :partial => 'users/new' %>
-                    <a class="close-reveal-modal">&#215;</a>
-                  </div>
-                </li>
-                <%# end %>
-            </ul> -->
-
+   
       <ul class="left">
       <% if !current_user %>
        <a class="navbar-brand" href="#">MusicOverflow</a>
