@@ -1,11 +1,13 @@
 Musicoverflow::Application.routes.draw do
 
+  get "sounds/index"
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   resource :sessions, only: [:new, :create, :destroy]
   resources :users
+  resources :sounds
 
   resources :posts do
     resources :comments

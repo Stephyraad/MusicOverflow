@@ -1,9 +1,11 @@
+<div id="body>"
 <h1>New User</h1>
 
 <%= form_for @user do |f| %>
-  Name: <%= f.text_field :username %>
-  Email: <%= f.text_field :email %>
-  Password: <%= f.password_field :password %>
+  <%= f.text_field :username, placeholder: "Username" %>
+  <%= f.text_field :email, placeholder: "Email" %>
+  <%= f.password_field :password, placeholder: "Password" %>
   
   <%= f.submit %>
 <% end %>
+</div>

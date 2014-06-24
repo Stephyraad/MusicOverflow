@@ -25,9 +25,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @post= Post.find(params[:id])
+    #@comment=@post.comments.new
+    @comment = Comment.new
+    #@new_comment = @post.comments.build
+    @comments = @post.comments.reverse
+    #respond_with @post
+  end
+
+
   protected
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
-end
+
+
+
+  end

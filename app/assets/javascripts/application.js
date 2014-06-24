@@ -20,8 +20,22 @@
 //= require_tree .
 //= require foundation
 
-
-
 $(function(){ $(document).foundation(); });
+
+function playSomeSound(genre){
+	SC.get('/tracks', {
+		genres: genre, 
+	},
+	function(tracks){
+		var random= Math.floor(Math.random()_* 49);
+		SC.oEmbed(tracks[random].uri, {auto_play: true}, document.getElementById('target'));
+	});
+}
+
+widow.onload =function() {
+	SC,intialize({
+		client_id: 'client_id'
+	});
+}
 
 

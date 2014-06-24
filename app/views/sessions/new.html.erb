@@ -12,12 +12,14 @@
 
 </head>
 <body> -->
+<div id= "body"
 	<h1>Login</h1>
 
 <%= form_for :session, :url => sessions_path do |f| %>
-	Email: <%= f.text_field :email %>
-	Password: <%= f.password_field :password %>
+	<%= f.text_field :email, placeholder: "Email" %>
+	<%= f.password_field :password, placeholder: "Password" %>
 	<%= f.submit "login" %>
 	<% end %>
+</div>
 </body>
 </html>

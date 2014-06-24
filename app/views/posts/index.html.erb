@@ -1,16 +1,14 @@
+
+<div id="body">
 <h1>Home Page (without the user's own posts)</h1>
 <!-- ADD A LINK TO EACH USER TO THEIR PROFILES -->
-
-<% @posts.each do |b| %>
-  <ul>
-    <li><%= b.topic %>    
-      <p>by {{post.user.username}}</p>
-       <ul><%= link_to "View", post_path(b) %></ul>
-    </li>
-  </ul>
-<% end %>
-  <script type="text/javascript">
-//  document.getElementById("currentevent").onclick= function(){
+	<% @posts.each do |b| %>
   
-// }
-</script>
+    <h3><%= b.topic %><h3>    
+      <p>by {{post.user.username}}</p>
+       <p><%= link_to "View", post_path(b) %></p>
+   
+  
+<% end %>
+</div>
+

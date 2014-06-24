@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 
 <title><%= content_for?(:title) ? yield(:title) : "MusicOverflow" %></title>
 
@@ -12,6 +12,7 @@
 <%= csrf_meta_tags %>
 
  <script src="http://connect.soundcloud.com/sdk.js"></script>
+ <script src="application.js"></script>
 
 <!-- In order to access the JavaScript object which provides the SoundCloud Widget API, add this script to your html page. -->
 <script src="/assets/sc_api_player.js"></script>
@@ -26,8 +27,8 @@
 <!-- 
 <div ng-app="post-app" class="container">
   <div ng-controller="ResourceCtrl"> -->
-
-<nav class="top-bar" data-topbar>
+<div class="fixed">
+<nav class="top-bar" data-topbar data-options>
   <ul class="title-area">
     
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -40,25 +41,25 @@
    
       <ul class="left">
       <% if !current_user %>
-       <a class="navbar-brand" href="#">MusicOverflow</a>
+       <li><a class="navbar-brand" href="#">MusicOverflow</a></li>
       <% else %>
-      <a class="navbar-brand" href="#"> <%= link_to current_user.username, users_path(filteruser: 's') %></a>
+       <li><a class="navbar-brand" href="#"> <%= link_to current_user.username, users_path(filteruser: 's') %></a></li>
       <% end %>
 
 
-          
+      
       <% if !current_user %>
           <li><%= link_to "Sign Up", new_user_path %></li>
           <li><%= link_to "Sign In", new_sessions_path %></li>
         <% else %>
           <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
         <% end %> 
-
+     
       
       </ul>
     <!-- Right Nav Section -->
     <ul class="right">
-      <li><a href="#">Notifications</a></li>
+      <li><%= link_to "Random Stream", sounds_path %></a></li>
       <li><%= link_to "Home", posts_path %></li>
     
       <li><%= link_to "New String", new_post_path %></li> 
@@ -103,6 +104,7 @@
     </ul>   
   </section>
 </nav>
+</div>
 
 <div id="player"></div>
 
@@ -116,7 +118,11 @@
 </div>
  -->
 <%= javascript_include_tag "application" %>
-<%= yield %>
+<div class='container'>
+  <div class='row'>
+    <%= yield %>
+  </div>
+</div>
 
 
 

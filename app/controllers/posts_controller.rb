@@ -6,9 +6,7 @@ class PostsController < ApplicationController
   def index
     
       @posts= Post.where.not(user_id: current_user.id).reverse
-   
-
-    
+     
   end
 
   def show
@@ -28,6 +26,7 @@ class PostsController < ApplicationController
   def create
     @post =Post.new(params.require(:post).permit(:topic))
     @post.user_id = current_user.id
+    
     if @post.save
       redirect_to posts_path
     else

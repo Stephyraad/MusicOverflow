@@ -1,11 +1,10 @@
+<div id="body">
 <h1><%= current_user.username %></h1>
-<p></p>
-
-<% @posts.each do |b| %>
-  <ul>
-    <li><%= b.topic %>    
+	<% @posts.each do |b| %>
+ 
+    <h3><%= b.topic %></h3>   
       <p>by {{post.user.username}}</p>
-       <ul><%= link_to "View", user_path(b) %></ul>
-    </li>
-  </ul>
+       <p><%= link_to "View", user_path(b) %><p>
+ 
 <% end %>
+ </div>
