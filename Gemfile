@@ -40,6 +40,7 @@ gem 'active_model_serializers'
 	gem "rspec-rails"
 end
 
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
