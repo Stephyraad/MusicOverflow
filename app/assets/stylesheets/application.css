@@ -14,7 +14,7 @@
  *= require_tree .
  */
 
-@import "foundation";
+@import 'foundation';
 
 @media only screen and (max-width: 942px) {
 	   /* Makes the responsive menu fit in the navigation container and change its background to black */
