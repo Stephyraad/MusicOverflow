@@ -22,6 +22,7 @@
 		<% @comments.each do |comment|%>
 			<li><%=comment.text_comment%></li>	
 			by <%= @comment.user_id %>
+			<%= link_to 'Delete', post_path %>
 		<%end %>
 	</ul>
 

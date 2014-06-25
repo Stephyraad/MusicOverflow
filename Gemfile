@@ -30,7 +30,8 @@ gem 'jquery-rails'
 
 gem 'angularjs-rails'
 gem "figaro"
- gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+gem 'pry'
 
 
 gem 'active_model_serializers'

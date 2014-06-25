@@ -1,14 +1,68 @@
-<p>pick a random genre to listen randomly listen to a new track</p>
+<html>
+<head>
+	
+<script src="//connect.soundcloud.com/sdk.js"></script>
+<script src="application.js"></script>
 
-<ul>
-	<li><a href="#" class="genre">Deep House</a></li>
-	<li><a href="#" class="genre">Progressive House</a></li>
-	<li><a href="#" class="genre">House</a></li>
-	<li><a href="#" class="genre">Trance</a></li>
-	<li><a href="#" class="genre">Hard Trance</a></li>
-	<li><a href="#" class="genre">Uplifting Trance</a></li>
-	<li><a href="#" class="genre">Techno</a></li>
-	<li><a href="#" class="genre">Deep Techno</a></li>
-</ul>
+</head>
+<body>
+
+
+<table id="">
+	<tr>
+		
+		<td><a href="#" class="genre">house</a></td>
+		<td><a href="#" class="genre">trance</a></td>
+		<td><a href="#" class="genre">punk</a></td>		
+	</tr>
+	<tr>
+		<td><a href="#" class="genre">deep house</a></td>
+		<td><a href="#" class="genre">uplifting trance</a></td>
+		<td><a href="#" class="genre">rock</a></td>
+	</tr>
+	<tr>
+		<td><a href="#" class="genre">progressive house</a></td>
+		<td><a href="#" class="genre">hard trance</a></td>
+		<td><a href="#" class="genre">jazz</a></td>
+	</tr>
+	<tr>
+		<td><a href="#" class="genre">techno</a></td>
+		<td><a href="#" class="genre">psy trance</a></td>
+		<td><a href="#" class="genre">classical</a></td>
+	</tr>
+	<tr>
+		<td><a href="#" class="genre">electronic</a></td>
+		<td><a href="#" class="genre">dark techno</a></td>
+		<td><a href="#" class="genre">trap</a></td>
+	</tr>
+
+</table>
 <div id= "target">
 </div>
+ <script >
+ function playSomeSound(genre){
+	SC.get('/tracks', {
+		"tags": genre,
+		"downloadable": true},
+	function(tracks){
+		var random= Math.floor(Math.random() * 100);
+		SC.oEmbed(tracks[random].uri, { auto_play: true }, document.getElementById('target'));
+	});
+};
+
+
+window.onload =function() {
+	SC.initialize({
+		
+		client_id:<%=ENV[CLIENT_ID]%>
+	});
+	$('.genre').click(function(e){
+			e.preventDefault();
+			playSomeSound(this.innerHTML);
+		});
+};
+</script>
+
+</body>
+
+</html>

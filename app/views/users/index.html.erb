@@ -1,10 +1,16 @@
-<div id="body">
-<h1><%= current_user.username %></h1>
-	<% @posts.each do |b| %>
+<div class= "full-width content-area">
+	<div class="row">
+		<div class ="large-12 columns">
+			<h1><%= current_user.username %></h1>
+				<% @posts.each do |b| %>
  
-    <h3><%= b.topic %></h3>   
-      <p>by {{post.user.username}}</p>
-       <p><%= link_to "View", user_path(b) %><p>
+    			<h3><%= b.topic %></h3>   
+     			<p>by {{post.user.username}}</p>
+     			
+       			<div class="button1"><%= link_to "View", user_path(b) %>
+       			<%= link_to "Delete", post_path(b), {method: :delete, confirm: "Are you sure you want to delete this event"} %></div>
  
-<% end %>
+				<% end %>
+		</div>
+	</div>
  </div>

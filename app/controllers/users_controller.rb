@@ -35,6 +35,18 @@ class UsersController < ApplicationController
   end
 
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    # THIS IS NOT REDIRECTING TO USER PATH BUT TO POSTS_PATH
+    redirect_to users_path
+  end
+
+  def post_params
+    params.require(:post).permit(:topic, 
+                                  comments_attributes: [:text_comment])
+  end
+
   protected
 
   def user_params

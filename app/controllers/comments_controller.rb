@@ -17,5 +17,12 @@ class CommentsController < ApplicationController
   def update
   end
 
+  def destroy
+    # NOT WORKING YET
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to posts_path
+  end
+
 
 end
