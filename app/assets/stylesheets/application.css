@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
-<<<<<<< HEAD
  *= require foundation_and_overrides
  *= require foundation 
  *= require_tree .
@@ -102,11 +101,3 @@ body {
 	width: 400px;
 
 }*/
-=======
- *= rails_bootstrap_form
- *= require_tree .
- 
-
- */
-
->>>>>>> 995c855f45d7794ca939443ad55a852951d73fb4
