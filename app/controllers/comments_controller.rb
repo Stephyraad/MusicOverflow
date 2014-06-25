@@ -5,7 +5,8 @@ class CommentsController < ApplicationController
 
   def create
   	@post = Post.find(params[:post_id])
-  	@comment =@post.comments.new(params.require(:comment).permit(:text_comment))
+  	@comment =@post.comments.new(params.require(:comment).permit(:text_comment, :user_id))
+    @comment.user_id = current_user.id
 
   	if @comment.save
       redirect_to post_path(@post)

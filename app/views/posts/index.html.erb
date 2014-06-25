@@ -2,16 +2,14 @@
 <div class= "full-width content-area">
 	<div class="row">
 		<div class ="large-12 columns">
-			<h1>Home Page (without the user's own posts)</h1>
+			<h1>Home Page </h1>
 			<!-- ADD A LINK TO EACH USER TO THEIR PROFILES -->
 			<% @posts.each do |b| %>
   
    			<h3><%= b.topic %><h3>    
-      		<p>by {{post.user.username}}</p>
+      		<p>by <%= b.user.username %></p>
        		<p><%= link_to "View", post_path(b) %>
-       		   <%= link_to "Delete", post_path(b), {method: :delete, confirm: "Are you sure you want to delete this event"} %></p>
-   
-  
+       		   <%#= link_to "Delete", post_path(b), {method: :delete, confirm: "Are you sure you want to delete this event"} %></p>
 			<% end %>
 		</div>
 	</div>

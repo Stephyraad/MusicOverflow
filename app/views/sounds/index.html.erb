@@ -40,6 +40,7 @@
 <div id= "target">
 </div>
  <script >
+ // calls on the SC API and allows the user to stream a random sound based on the music genre selected
  function playSomeSound(genre){
 	SC.get('/tracks', {
 		"tags": genre,

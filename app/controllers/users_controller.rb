@@ -27,11 +27,9 @@ class UsersController < ApplicationController
 
   def show
     @post= Post.find(params[:id])
-    #@comment=@post.comments.new
-    @comment = Comment.new
-    #@new_comment = @post.comments.build
+    @comment = Comment.new 
     @comments = @post.comments.reverse
-    #respond_with @post
+
   end
 
 
@@ -39,7 +37,7 @@ class UsersController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     # THIS IS NOT REDIRECTING TO USER PATH BUT TO POSTS_PATH
-    redirect_to users_path
+    redirect_to root_path
   end
 
   def post_params
@@ -52,7 +50,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
-
-
 
   end
