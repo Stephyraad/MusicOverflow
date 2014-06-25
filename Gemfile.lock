@@ -30,6 +30,9 @@ GEM
     angularjs-rails (1.2.18)
     arel (4.0.2)
     bcrypt (3.1.7)
+    bootstrap-sass (3.1.1.1)
+      sass (~> 3.2)
+    bootstrap_form (2.1.1)
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -47,9 +50,12 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+<<<<<<< HEAD
     foundation-rails (5.3.0.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+=======
+>>>>>>> 995c855f45d7794ca939443ad55a852951d73fb4
     hashie (2.1.2)
     hike (1.2.3)
     i18n (0.6.9)
@@ -171,9 +177,10 @@ DEPENDENCIES
   active_model_serializers
   angularjs-rails
   bcrypt (~> 3.1.7)
+  bootstrap-sass (~> 3.1.1)
+  bootstrap_form
   coffee-rails (~> 4.0.0)
   figaro
-  foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
   omniauth

@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :set_post, :only => [:show, :edit, :update, :destroy]
+  
   def welcome
   end
 
@@ -56,9 +58,18 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+<<<<<<< HEAD
   def post_params
     params.require(:post).permit(:topic, 
                                   comments_attributes: [:text_comment])
+=======
+  def set_post
+    @post= Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:topic)
+>>>>>>> 995c855f45d7794ca939443ad55a852951d73fb4
   end
 
   def comment_params
