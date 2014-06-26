@@ -5,14 +5,10 @@
 
   <title><%= content_for?(:title) ? yield(:title) : "MusicOverflow" %></title>
 
-
-
-  <%#= stylesheet_link_tag 'http://soundcloudfront.com/stylesheets/style.css', 'application', 'soundcloud' %>
  
   <%= javascript_include_tag 'application', 'vendor/modernizr' %>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag  'application' %>
   <%= csrf_meta_tags %>
 
 
@@ -30,63 +26,53 @@
 <body>
   
 <div class="fixed">
-<nav class="top-bar" data-topbar data-options>
-  <ul class="title-area">
-    
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
- 
-
-  <section class="top-bar-section">
-    <!-- Left Nav Section -->
+  <nav class="top-bar" data-topbar data-options>
+    <ul class="title-area">
+      
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
    
-      <ul class="left">
-      <% if !current_user %>
-       <li><a class="navbar-brand" href="#">MusicOverflow</a></li>
-      <% else %>
-       <li><a class="navbar-brand" href="#"> <%= link_to current_user.username, users_path(filteruser: 's') %></a></li>
-      <% end %>
 
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
 
-      
-      <% if !current_user %>
-          <li><%= link_to "Sign Up", new_user_path %></li>
-          <li><%= link_to "Sign In", new_sessions_path %></li>
+        <ul class="left">
+        <!-- if user not login in or sign up MusicOVerflow Shows up or else if signin => Username Shows up -->
+        <% if !current_user %>
+         <li><a class="navbar-brand" href="#">MusicOverflow</a></li>
         <% else %>
-          <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
-        <% end %> 
-     
-      
-      </ul>
-    
-    <!-- Right Nav Section -->
-    <ul class="right">
-      <li><%= link_to "Random Stream", sounds_path %></a></li>
-      <li><%= link_to "Home", posts_path %></li>
-    
-      <li><%= link_to "New String", new_post_path %></li> 
-      
+         <li><a class="navbar-brand" href="#"> <%= link_to current_user.username, users_path(filteruser: 's') %></a></li>
+        <% end %>
+
+
+        <!-- if user sign in then only the sign out option shows up or else sign in/sign up shows up -->
+        <% if !current_user %>
+            <li><%= link_to "Sign Up", new_user_path %></li>
+            <li><%= link_to "Sign In", new_sessions_path %></li>
+          <% else %>
+            <li><%= link_to "Sign Out", sessions_path, :method => :delete %></li>
+          <% end %> 
+       
         
-      <a class="close-reveal-modal"></a>
-
-
-    </ul>   
-  </section>
-</nav>
+        </ul>
+      
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li><%= link_to "Random Stream", sounds_path %></a></li>
+        <li><%= link_to "Home", posts_path %></li>
+        <li><%= link_to "New String", new_post_path %></li>  
+      </ul>   
+    </section>
+  </nav>
 </div>
 
 
-<%= javascript_include_tag "application" %>
+
 <div class='container'>
   <div class='row'>
     <%= yield %>
   </div>
 </div>
-
-
-
-
-
 
 </body>
 </html>

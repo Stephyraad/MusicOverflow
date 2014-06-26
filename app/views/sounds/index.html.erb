@@ -40,26 +40,26 @@
 <div id= "target">
 </div>
  <script >
- // calls on the SC API and allows the user to stream a random sound based on the music genre selected
- function playSomeSound(genre){
-	SC.get('/tracks', {
-		"tags": genre,
-		"downloadable": true},
-	function(tracks){
-		var random= Math.floor(Math.random() * 100);
-		SC.oEmbed(tracks[random].uri, { auto_play: true }, document.getElementById('target'));
-	});
-};
+	 // calls on the SC API and allows the user to stream a random sound based on the music genre selected
+	 function playSomeSound(genre){
+		SC.get('/tracks', {
+			"tags": genre,
+			"downloadable": true},
+		function(tracks){
+			var random= Math.floor(Math.random() * 100);
+			SC.oEmbed(tracks[random].uri, { auto_play: true }, document.getElementById('target'));
+			});
+		};
 
-window.onload =function() {
-	SC.initialize({
-		client_id: '4aa1dd0180daa6f5578cf7fb34e07645'
-	});
-	$('.genre').click(function(e){
-			e.preventDefault();
-			playSomeSound(this.innerHTML);
+	window.onload =function() {
+		SC.initialize({
+			client_id: '4aa1dd0180daa6f5578cf7fb34e07645'
 		});
-};
+		$('.genre').click(function(e){
+				e.preventDefault();
+				playSomeSound(this.innerHTML);
+			});
+		};
 </script>
 
 </body>
