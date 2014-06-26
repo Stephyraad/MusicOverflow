@@ -1,3 +1,13 @@
-MusicOverflow is an app that allows users to find share and explore music material.
-After logging in users can visit their home page to view the comments on their own post or go to the news feed page to visit recent post and comment on them.
-Random Stream page makes an API call to Soundcloud and allows users to listen to a random song based on the music genre they pick.
+MusicOverflow
+
+Overview
+MusicOverflow is an app that allows users to find, share and explore music material.
+
+The App
+Post a new 'String' (question/post) about what new music material you are looking for and let the new music recommendations come to you.
+
+Navigating through the App
+After logging in, users can go to their home page to view the comments about their own posts or visit the String Feed page to read through other user's posts and comment on them.
+
+Add-Ons
+the Random Stream page makes an API call to Soundcloud and allows users to listen to a random song based on the music genre they pick.
