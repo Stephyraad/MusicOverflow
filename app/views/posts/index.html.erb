@@ -1,16 +1,19 @@
 <!-- Show all the posts created but the post index page doesnt include the post created by the current user -->
-<div class= "full-width content-area">
-	<div class="row">
-		<div class ="large-12 columns">
-			<h1>String Feed </h1>
-			
-			<% @posts.each do |b| %>
-  
-   			<h3><%= b.topic %><h3>    
-      		<p>by <%= b.user.username %></p>
-       		<p><%= link_to "View", post_path(b) %>
-       		  
-			<% end %>
+
+<div class="panel">
+	<div class= "full-width content-area">
+		<div class="row">
+			<div class ="large-12 columns">
+				<h1>String Feed </h1>
+				
+				<% @posts.each do |b| %>
+	  
+	   			<h3><%= b.topic %><h3>    
+	      		<p>by <%= b.user.username %></p>
+	       		<p><%= link_to "View", post_path(b) %>
+	       		  
+				<% end %>
+			</div>
 		</div>
-	</div>
- </div>
+	 </div>
+</div>

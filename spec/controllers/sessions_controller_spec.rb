@@ -26,10 +26,4 @@ describe SessionsController, type: :controller do
     end
 end
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 995c855f45d7794ca939443ad55a852951d73fb4
-
-
 
