@@ -1,10 +1,10 @@
-#MusicOverflow 
-### Overview
+# MusicOverflow 
 
+### Overview
 **MusicOverflow** is an app that allows users to find, share and explore music material.
  
 
-###The App
+### The App
 Post a new '*String*' (question/post) about what new music material you are looking for and let the new music recommendations come to you.
 
 ### Navigating through the App
