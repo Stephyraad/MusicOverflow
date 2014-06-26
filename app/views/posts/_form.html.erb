@@ -1,11 +1,18 @@
-<%=form_for @post do |f| %>
-	<div class="form_for">
-		<div class="small form" id="form_topic">
-			<%= f.text_field :topic, placeholder: "String", class: "form-control" %>
-		</div>
-		
+ <!-- Doesnt allow the user to create a new string unless he is signed in -->
+ <% if !current_user %>
+ 	<di><p>Please Sign in/Sign up before you create a new string</p>
+  
+  <% else %>	
+	<%=form_for @post do |f| %>
+		<div class="form_for">
+			<div class="small form" id="form_topic">
+				<%= f.text_field :topic, placeholder: "String", class: "form-control" %>
+			</div>
+			
 
-	<%= f.submit %> <br/>
-	<%= link_to 'Cancel', posts_path %>
-<%end %>
-	
+		<%= f.submit %> <br/>
+		<%= link_to 'Cancel', posts_path %>
+	<%end %>
+
+<% end %> 
+       

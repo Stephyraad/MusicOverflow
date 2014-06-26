@@ -5,16 +5,16 @@ class PostsController < ApplicationController
   def welcome
   end
 
+# if the user is not signed in then you can't view the posts and when the user signs in only post NOT created by the user are displayed
   def index
       if !current_user
         @posts= []
-      
       else
       @posts= Post.where.not(user_id: current_user.id).reverse 
     end
   end
 
-
+# shows the post and the comments related to that post 
   def show
     @post= Post.find(params[:id])
     @comment = Comment.new
@@ -58,20 +58,16 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-
+# comments are nested in posts and post_params method permits comments_attributes to be tied to post
   def post_params
     params.require(:post).permit(:topic, 
                                   comments_attributes: [:text_comment])
   end
-  
+
   def set_post
     @post= Post.find(params[:id])
   end
 
-  def post_params
-    params.require(:post).permit(:topic)
-
-  end
 
   def comment_params
     params.require(:comment).permit(:text_comment)
