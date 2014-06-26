@@ -1,13 +1,14 @@
-MusicOverflow
+#MusicOverflow 
+### Overview
 
-Overview
-MusicOverflow is an app that allows users to find, share and explore music material.
+**MusicOverflow** is an app that allows users to find, share and explore music material.
+ 
 
-The App
-Post a new 'String' (question/post) about what new music material you are looking for and let the new music recommendations come to you.
+###The App
+Post a new '*String*' (question/post) about what new music material you are looking for and let the new music recommendations come to you.
 
-Navigating through the App
-After logging in, users can go to their home page to view the comments about their own posts or visit the String Feed page to read through other user's posts and comment on them.
+### Navigating through the App
+After logging in, users can go to their home page to view the comments about their own posts or visit the *String Feed* page to read through other user's posts and comment on them.
 
-Add-Ons
-the Random Stream page makes an API call to Soundcloud and allows users to listen to a random song based on the music genre they pick.
+### Add-Ons
+the *Random Stream* page makes an API call to Soundcloud and allows users to listen to a random song based on the music genre they pick.
