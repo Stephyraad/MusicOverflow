@@ -1,19 +1,11 @@
 <!-- Form to sign in -->
 
-<form>
-	<div class="panel">
-		<h1>Login</h1>
-		
-		<div class="row">
+<div class="panel">
+	<h1>Login</h1>
 
-			<%= form_for :session, :url => sessions_path do |f| %>
-			<div class="large-6 columns">
-			<%= f.text_field :email, placeholder: "Email" %></div>
-			<div class="large-6 columns">
-			<%= f.password_field :password, placeholder: "Password" %></div>
+		<%= form_for :session, :url => sessions_path do |f| %>
+			<%= f.text_field :email, placeholder: "Email" %>
+			<%= f.password_field :password, placeholder: "Password" %>
 			<%= f.submit "login" %>
 			<% end %>
-
-		</div>
-	</div>
-</form>
+</div>
