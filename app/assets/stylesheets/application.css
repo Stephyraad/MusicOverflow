@@ -23,6 +23,23 @@
  
 }/* end media query */
 
+#newstring{
+	margin-top: 100px !important;
+	display: inline;
+	text-align: center;
+}
+
+#newstring h2{
+	color: #1E90FF;
+}
+
+/*#sign{
+	display: inline;
+	text-align: center;
+	width: 150px;
+}*/
+
+
 h1{
 	color: blue !important;
 }
@@ -76,7 +93,8 @@ tr {
 
 form {
 	width: 800px;
-	text-align: left;
+	/*text-align: left;*/*/
+	margin: auto o;
 }
 
 .full-width{

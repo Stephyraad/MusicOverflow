@@ -1,22 +1,17 @@
 <!-- form to sign up -->
-<div id="body">
+<div id="sign">
 	<h1>New User</h1>
 
 		<%= form_for @user do |f| %>
-
-		<div>
-		<%=form_for @user do |f| %>
-
+		
 		  <%= f.text_field :username, placeholder: "Username" %>
 		  <%= f.text_field :email, placeholder: "Email" %>
 		  <%= f.password_field :password, placeholder: "Password" %>
-		  
 		  <%= f.submit %>
 
-		<% end %>
 		<%end %>
 
-		</div>
+		
 
   </div>
 
