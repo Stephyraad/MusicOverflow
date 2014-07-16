@@ -19,8 +19,6 @@
         background-color: rgba(0, 0, 0, 0.5);
         padding-bottom: 13px;
     }
-
- 
 }/* end media query */
 
 /*#newstring h2{
@@ -33,6 +31,14 @@
 	width: 150px;
 }*/
 
+#container{
+	width: 1100px;
+
+	background-color: grey;
+	margin: auto;
+	display: block;
+	
+}
 
 h1{
 	color: blue !important;
