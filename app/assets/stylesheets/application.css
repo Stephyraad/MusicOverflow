@@ -67,7 +67,8 @@ body{
 	margin: auto 0 !important;
 	padding-top: 25px !important;
 	margin-top: 60px !important;
-	height: 500px !important;
+	height: 550px !important;
+	overflow-x: scroll;
 	/*background-color: #F0FFF0 !important;*/
 }
 
