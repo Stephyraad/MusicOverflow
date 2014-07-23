@@ -4,6 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
 
   <title><%= content_for?(:title) ? yield(:title) : "MusicOverflow" %></title>
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+
+
 
  
   <%= javascript_include_tag 'application', 'vendor/modernizr' %>
@@ -36,7 +41,7 @@
 
     <section class="top-bar-section">
       <!-- Left Nav Section -->
-
+     
         <ul class="left">
         <!-- if user not login in or sign up MusicOVerflow Shows up or else if signin => Username Shows up -->
         <% if !current_user %>
@@ -44,6 +49,7 @@
         <% else %>
          <li><a class="navbar-brand" href="#"> <%= link_to current_user.username, users_path(filteruser: 's') %></a></li>
         <% end %>
+     
 
 
         <!-- if user sign in then only the sign out option shows up or else sign in/sign up shows up -->

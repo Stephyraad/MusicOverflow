@@ -1,6 +1,10 @@
 <!-- Show all the posts created but the post index page doesnt include the post created by the current user -->
+ <div class="panel">
+<% if !current_user %>
+	<h3>Sign in/Sign up to view your profile<br> or just random stream a sound</h3>
+  
+  <% else %>
 
-<div class="panel">
 	<div class= "full-width content-area">
 		<div class="row">
 			<div class ="large-12 columns">
@@ -16,4 +20,5 @@
 			</div>
 		</div>
 	 </div>
+<% end %>
 </div>
